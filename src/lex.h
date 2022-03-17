@@ -64,8 +64,8 @@ public:
 
 
 
-extern ostream& operator<<(ostream& out, const LexItem& tok);
-extern LexItem id_or_kw(const string& lexeme, int linenum);
+// eaxtern ostream& operator<<(ostream& out, const LexItem& tok);
+// extern LexItem id_or_kw(const string& lexeme, int linenum);
 extern LexItem getNextToken(istream& in, int& linenum);
 
 
