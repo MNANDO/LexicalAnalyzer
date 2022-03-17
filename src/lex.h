@@ -11,8 +11,11 @@
 #include <string>
 #include <iostream>
 #include <map>
-using namespace std;
 
+// maximum size of the source code
+#define MAX_LINE_LENGTH 1080
+
+char buffer[MAX_LINE_LENGTH];
 
 //Definition of all the possible token types
 enum Token {
@@ -40,7 +43,7 @@ enum Token {
 //Class definition of LexItem
 class LexItem {
 	Token	token;
-	string	lexeme;
+    std::string	lexeme;
 	int	lnum;
 
 public:
@@ -48,7 +51,7 @@ public:
 		token = ERR;
 		lnum = -1;
 	}
-	LexItem(Token token, string lexeme, int line) {
+	LexItem(Token token, std::string lexeme, int line) {
 		this->token = token;
 		this->lexeme = lexeme;
 		this->lnum = line;
@@ -58,15 +61,23 @@ public:
 	bool operator!=(const Token token) const { return this->token != token; }
 
 	Token	GetToken() const { return token; }
-	string	GetLexeme() const { return lexeme; }
+    std::string	GetLexeme() const { return lexeme; }
 	int	GetLinenum() const { return lnum; }
 };
 
 
 
+<<<<<<< HEAD
 // eaxtern ostream& operator<<(ostream& out, const LexItem& tok);
 // extern LexItem id_or_kw(const string& lexeme, int linenum);
 extern LexItem getNextToken(istream& in, int& linenum);
+=======
+// extern ostream& operator<<(ostream& out, const LexItem& tok);
+// extern LexItem id_or_kw(const string& lexeme, int linenum);
+// extern LexItem getNextToken(std::istream& in, int& linenum);
+extern LexItem getNextToken(std::istream& in);
+
+>>>>>>> f5e45229a42a3d3cf38b9a0f046b4ab7fdeb1033
 
 
 #endif /* LEX_H_ */
